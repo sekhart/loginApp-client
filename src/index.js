@@ -1,11 +1,14 @@
 import React from "react";
 import ReactDom from "react-dom";
-import "./index.css"
+
+import { BrowserRouter as Router } from "react-router-dom";
+import App from "./App";
 
 const root = document.getElementById("root");
 
-const App = () => {
-  return <h1 className="appClass">Hello Login App!</h1>;
-};
-
-ReactDom.render(<App />, root);
+ReactDom.render(
+  <Router>
+    <App />
+  </Router>,
+  root
+);

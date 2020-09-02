@@ -9,7 +9,7 @@ mkdir public
 mkdir src
 
 # install react, react-dom
-yarn add react, react-dom
+yarn add react react-dom formik yup react-toastify
 
 # install webpack dev dependencies
 yarn add --save-dev webpack webpack-cli webpack-dev-server html-webpack-plugin
