@@ -8,17 +8,6 @@ import { Redirect, useHistory, useLocation } from "react-router-dom";
 
 import "../user/login.css";
 
-
-const initialValues = {
-  usernameOrEmail: "",
-  password: "",
-};
-
-const validationSchema = Yup.object({
-  usernameOrEmail: Yup.string().required("username Or Email required!"),
-  password: Yup.string().required("Password required!"),
-});
-
 const Login = ({ data }) => {
   let history = useHistory();
   const location = useLocation();
@@ -28,6 +17,16 @@ const Login = ({ data }) => {
   }
 
   useEffect(() => {}, [location.pathname]);
+
+  const initialValues = {
+    usernameOrEmail: "",
+    password: "",
+  };
+
+  const validationSchema = Yup.object({
+    usernameOrEmail: Yup.string().required("username Or Email required!"),
+    password: Yup.string().required("Password required!"),
+  });
 
   const onSubmit = (values, onSubmitProps) => {
     console.log(values.usernameOrEmail);
@@ -57,7 +56,7 @@ const Login = ({ data }) => {
     >
       <Form>
         <div>
-          <label htmlFor="usernameOrEmail" >Username</label>
+          <label htmlFor="usernameOrEmail">Username</label>
           <Field type="text" id="usernameOrEmail" name="usernameOrEmail" />
           <ErrorMessage name="usernameOrEmail" />
         </div>
