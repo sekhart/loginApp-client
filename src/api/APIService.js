@@ -1,4 +1,4 @@
-import { API_BASE_URL, POLL_LIST_SIZE, ACCESS_TOKEN } from "../util/constants";
+import { API_BASE_URL, ACCESS_TOKEN } from "../util/constants";
 
 const request = (options) => {
   const headers = new Headers({
@@ -27,7 +27,7 @@ const request = (options) => {
 
 export function login(loginRequest) {
   return request({
-    url: API_BASE_URL + "/signin",
+    url: API_BASE_URL + "/auth/signin",
     method: "POST",
     body: JSON.stringify(loginRequest),
   });
@@ -39,7 +39,7 @@ export function getCurrentUser() {
   }
 
   return request({
-    url: API_BASE_URL + "/me",
+    url: API_BASE_URL + "/users/me",
     method: "GET",
   });
 }

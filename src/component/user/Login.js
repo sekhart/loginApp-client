@@ -3,31 +3,15 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { login } from "../../api/APIService";
 import { ACCESS_TOKEN } from "../../util/constants";
-import "./login.css";
+
 import { Redirect, useHistory, useLocation } from "react-router-dom";
+
+import "../user/login.css";
+
 
 const initialValues = {
   usernameOrEmail: "",
   password: "",
-};
-
-const onSubmit = (values, onSubmitProps) => {
-  console.log(values.usernameOrEmail);
-  const loginRequest = Object.assign({}, values);
-  login(loginRequest)
-    .then((response) => {
-      localStorage.setItem(ACCESS_TOKEN, response.accessToken);
-      console.log("Token", response.accessToken);
-    })
-    .catch((error) => {
-      if (error.status === 401) {
-        console.log("error 401");
-      } else {
-        console.log("Sorry something went wrong! please try again", error);
-      }
-    });
-  onSubmitProps.setSubmitting(false);
-  onSubmitProps.resetForm();
 };
 
 const validationSchema = Yup.object({
@@ -73,9 +57,9 @@ const Login = ({ data }) => {
     >
       <Form>
         <div>
-          <label htmlFor="usernameOrEmail">Username</label>
+          <label htmlFor="usernameOrEmail" >Username</label>
           <Field type="text" id="usernameOrEmail" name="usernameOrEmail" />
-          <ErrorMessage name="usernameOrEmail" className="errMsg" />
+          <ErrorMessage name="usernameOrEmail" />
         </div>
         <div>
           <label htmlFor="password">Password</label>

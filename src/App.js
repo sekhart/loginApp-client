@@ -4,11 +4,9 @@ import "./index.css";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import NotFound from "./common/NotFound";
 import Login from "./component/user/login";
-import Logout from "./component/user/Logout";
 import { getCurrentUser } from "./api/APIService";
 import { ACCESS_TOKEN } from "./util/constants";
 import { useHistory, useLocation } from "react-router-dom";
-import PrivateRoute from "./common/PrivateRoute";
 
 const App = () => {
   const [currentUser, setCurretnUser] = useState("");
@@ -80,12 +78,6 @@ const App = () => {
         <Route exact path="/login">
           <Login data={isAuthenticated} />
         </Route>
-        <PrivateRoute
-          authenticated={isAuthenticated}
-          path="/home"
-          component={Home}
-          handleLogout={handleLogout}
-        ></PrivateRoute>
         <Route>
           <NotFound />
         </Route>
