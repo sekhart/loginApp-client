@@ -3,9 +3,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { login } from "../../api/APIService";
 import { ACCESS_TOKEN } from "../../util/constants";
-
 import { Redirect, useHistory, useLocation } from "react-router-dom";
-
 import "../user/login.css";
 
 const Login = ({ data }) => {
@@ -55,6 +53,7 @@ const Login = ({ data }) => {
       validationSchema={validationSchema}
     >
       <Form>
+        <h1>Login</h1>
         <div>
           <label htmlFor="usernameOrEmail">Username</label>
           <Field type="text" id="usernameOrEmail" name="usernameOrEmail" />
@@ -65,8 +64,10 @@ const Login = ({ data }) => {
           <Field type="password" id="password" name="password" />
           <ErrorMessage name="password" />
         </div>
-        <button type="submit">Login</button>
-        <button type="reset">Cancel</button>
+        <div>
+          <button  type="submit" >Login</button>
+          <button type="reset">Cancel</button>
+        </div>
       </Form>
     </Formik>
   );
